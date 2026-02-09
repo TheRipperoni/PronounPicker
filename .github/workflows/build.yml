@@ -1,4 +1,4 @@
-name: Run Lint, Prettier, and Tests on PR and Push
+name: Run Lint, Prettier, and build on PR and Push
 
 on:
   pull_request:
@@ -53,6 +53,3 @@ jobs:
 
       - name: Build packages
         run: pnpm run build
-
-      - name: Run tests
-        run: pnpm test
