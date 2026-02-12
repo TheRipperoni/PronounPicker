@@ -16,7 +16,7 @@ export class PronounPicker {
   }
 
   static create(cfg: Config) {
-    const firehose = new MyJetstream()
+    const firehose = new MyJetstream(cfg)
     return new PronounPicker(firehose, cfg)
   }
 

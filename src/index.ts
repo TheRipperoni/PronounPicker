@@ -10,6 +10,10 @@ const run = async () => {
       'wss://jetstream1.us-west.bsky.network/subscribe',
     subscriptionReconnectDelay:
       maybeInt(process.env.JETSTREAM_SUBSCRIPTION_RECONNECT_DELAY) ?? 3000,
+    uriLabelMap: new Map(Object.entries(JSON.parse(process.env.URI_LABEL_MAP ?? '{}'))),
+    resetPost:
+      maybeStr(process.env.RESET_POST) ??
+      'at://did:plc:l3nbhdfelt5d26btksecetxu/app.bsky.feed.post/3medxe3ubgk2w',
   })
   await server.start()
   await new Promise((f) => setTimeout(f, 3000))
